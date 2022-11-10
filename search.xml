@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>偶数求和</title>
+      <link href="/2022/11/10/%E5%81%B6%E6%95%B0%E6%B1%82%E5%92%8C/"/>
+      <url>/2022/11/10/%E5%81%B6%E6%95%B0%E6%B1%82%E5%92%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="偶数求和"><a href="#偶数求和" class="headerlink" title="偶数求和"></a>偶数求和</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个长度为n(n&lt;&#x3D;100)的数列，该数列定义为从2开始的递增有序偶数，现在要求你按照顺序每m个数求出一个平均值，如果最后不足m个，则以实际数量求平均值。编程输出该平均值序列。</p><p>输入<br>输入数据有多组，每组占一行，包含两个正整数n和m，n和m的含义如上所述。程序读入n&#x3D;0，m&#x3D;0时停止。<br>输出<br>对于每组输入数据，输出一个平均值序列，每组输出占一行。</p><h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre><code>#include &lt;iostream&gt;#include &lt;string&gt;using namespace std;void average(int n, int m) &#123;int u = (n/m)*m;int v = 2*((n/m)*m+1);if (n % m == 0) &#123;    int x = 0;    for (int i = 2,j=1; i &lt;= 2 * n; i += 2,j++) &#123;        x += i;        if (j % m == 0) &#123;            cout &lt;&lt; x / m &lt;&lt;&quot; &quot;;            x = 0;        &#125;    &#125;&#125;if (n % m != 0) &#123;    int x = 0;    for (int i = 2, j = 1; j&lt;=u; i += 2, j++) &#123;        x += i;        if (j % m == 0) &#123;            cout &lt;&lt; x / m &lt;&lt; &quot; &quot;;            x = 0;        &#125;    &#125;    int y = 0;    for (int h = 1; h &lt;= n - (n / m) * m; h++, v += 2) &#123;        y += v;        if (h % (n - (n / m) * m) == 0) &#123;            cout &lt;&lt; y / (n - (n / m) * m) &lt;&lt; &quot; &quot;;        &#125;    &#125;&#125;&#125;int main() &#123;int n, m;while (cin &gt;&gt; n &gt;&gt; m) &#123;    if (n == 0 &amp;&amp; m == 0) &#123;        break;    &#125;    average(n, m);    cout &lt;&lt; endl;&#125;return 0;&#125;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>求平均成绩</title>
+      <link href="/2022/11/10/%E6%B1%82%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9/"/>
+      <url>/2022/11/10/%E6%B1%82%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="求平均成绩"><a href="#求平均成绩" class="headerlink" title="求平均成绩"></a>求平均成绩</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p> 假设一个班有n(n&lt;&#x3D;50)个学生，每人考m(m&lt;&#x3D;5)门课，求每个学生的平均成绩和每门课的平均成绩，并输出各科成绩均大于等于平均成绩的学生数量。<br> 输入<br> 每组输入数据有一个测试实例，每个测试实例的第一行包括两个整数n和m，分别表示学生数和课程数。然后是n行数据，每行包括m个整数（即：考试分数）。<br> 输出<br> 对于每个测试实例，输出3行数据，第一行包含n个数据，表示n个学生的平均成绩，结果保留两位小数；第二行包含m个数据，表示m门课的平均成绩，结果保留两位小数；第三行是一个整数，表示该班级中各科成绩均大于等于平均成绩的学生数量。</p><h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre><code>#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;iomanip&gt;using namespace std;int main()&#123;double n, m;int k = 0;double a[100][100];double c[100] = &#123; 0 &#125;;double b[100] = &#123; 0 &#125;;cin &gt;&gt; n &gt;&gt; m;for (int i = 0; i &lt; n; i++)&#123;    for (int j = 0; j &lt; m; j++)    &#123;        cin &gt;&gt; a[i][j];    &#125;&#125;for (int i = 0; i &lt; n; i++)&#123;    for (int j = 0; j &lt; m; j++)    &#123;        b[i] += a[i][j];    &#125;    cout &lt;&lt;fixed&lt;&lt; setprecision(2) &lt;&lt; b[i] / m &lt;&lt; &quot; &quot;;&#125;cout&lt;&lt;endl;for (int i = 0; i &lt; n; i++)&#123;    for (int j = 0; j &lt; m; j++)    &#123;        c[i] += a[j][i];    &#125;    cout &lt;&lt;fixed&lt;&lt;setprecision(2)&lt;&lt; c[i] / n &lt;&lt; &quot; &quot;;&#125;cout &lt;&lt; endl;for (int i = 0; i &lt; n; i++)&#123;    int h = 1;    for (int j = 0; j &lt; m; j++)    &#123;        if (a[i][j] &gt;= (c[i] / n)) &#123; h++; &#125;    &#125;    if (h == m) &#123; k++; &#125;&#125;cout &lt;&lt; k-1 &lt;&lt; endl;return 0;&#125;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二进制回文</title>
       <link href="/2022/11/10/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9B%9E%E6%96%87/"/>
       <url>/2022/11/10/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9B%9E%E6%96%87/</url>
@@ -22,32 +48,6 @@
       <url>/2022/11/10/%E7%BA%A2%E8%AD%A6%E4%B9%8B%E7%8E%8B/</url>
       
         <content type="html"><![CDATA[<p>cover: </p><h1 id="红警之王"><a href="#红警之王" class="headerlink" title="红警之王"></a>红警之王</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>  红警是一款经典的即时战略游戏，MFC爱玩红警到了痴迷的程度！<br>  一天晚上，MFC打红警到凌晨2点，恍惚之间他发现自己进入了红警的世界，他现在的身份是一个一星动员兵！<br>  在一场遭遇战中，他来到了“冷酷的敌人”的基地，对于他来说，他面前有N个建筑，每个建筑有四种属性，分别是 类型、生命值、x坐标、y坐标。<br>  动员兵MFC被玩家指定了攻击顺序，他必须按照读入的顺序依次推倒每个建筑，具体来说：<br>  MFC初始位于坐标(0,0)处，初始攻击力为30，首先它将以1单位每秒的速度移动到建筑的位置，之后他将每秒对建筑造成等同于他当前攻击力的伤害，当建筑物生命值降到0时，建筑物被摧毁，MFC将前去摧毁下一个建筑，直到所有建筑被摧毁，MFC将获得胜利。<br>  值得注意的是，当MFC摧毁3座建筑后，他会升至二星并拥有40攻击力。当他再摧毁5座建筑后，他会升至三星并拥有55攻击力。星级提升不会影响他的移动速度，坐标间距离的计算方式采用欧几里得距离，即两点之间的最短线段长度，移动带来的时间消耗向下取整。<br>  MFC想知道，他将在多少秒后完成任务。</p><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><pre><code>#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;cmath&gt;using namespace std;struct red2&#123;string name;int hp;int codex;int codey;&#125;;void tim(int hp[],int codex[],int codey [], int n) &#123;int x = 0, y = 0, fig = 30;int tim = 0;for (int i = 0; i &lt; n; i++) &#123;    tim += sqrt(((codex[i] - x) * (codex[i] - x) + (codey[i] - y) * (codey[i] - y)));    if (hp[i] % fig == 0) &#123; tim += hp[i] / fig; &#125;    else if(hp[i]%fig!=0)&#123; tim += hp[i] / fig+1; &#125;    if (i == 2) &#123; fig = 40; &#125;    if (i == 7) &#123; fig = 55; &#125;    x = codex[i]; y = codey[i];&#125;cout &lt;&lt; tim &lt;&lt; endl;&#125;int main() &#123;red2 target [100];int hp[100],codex[100],codey[100];int n; cin &gt;&gt; n;for (int i = 0; i &lt; n; i++) &#123;    cin &gt;&gt; target[i].name;    cin &gt;&gt; target[i].hp; hp[i] = target[i].hp;    cin &gt;&gt; target[i].codex; codex[i] = target[i].codex;    cin &gt;&gt; target[i].codey; codey[i] = target[i].codey;&#125;tim(hp, codex, codey, n);return 0;&#125;</code></pre>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一篇博客</title>
-      <link href="/2022/10/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2022/10/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<p>cover:</p><h1 id="是否显示文章封面"><a href="#是否显示文章封面" class="headerlink" title="是否显示文章封面"></a>是否显示文章封面</h1><p>  index_enable: true<br>  aside_enable: true<br>  archives_enable: true</p><h1 id="封面显示的位置"><a href="#封面显示的位置" class="headerlink" title="封面显示的位置"></a>封面显示的位置</h1><h1 id="三个值可配置-left-right-both"><a href="#三个值可配置-left-right-both" class="headerlink" title="三个值可配置 left , right , both"></a>三个值可配置 left , right , both</h1><p>  position: both</p><h1 id="当没有设置cover时，默认的封面显示"><a href="#当没有设置cover时，默认的封面显示" class="headerlink" title="当没有设置cover时，默认的封面显示"></a>当没有设置cover时，默认的封面显示</h1><p>  default_cover: </p><ul><li><a href="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png">https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png</a></li></ul>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2022/10/28/hello-world/"/>
-      <url>/2022/10/28/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       
