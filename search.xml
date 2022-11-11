@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>字符串统计</title>
+      <link href="/2022/11/11/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1/"/>
+      <url>/2022/11/11/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="字符串统计"><a href="#字符串统计" class="headerlink" title="字符串统计"></a>字符串统计</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>对于给定的一个字符串，统计其中数字字符出现的次数。<br>输入<br>输入数据有多行，第一行是一个整数n，表示测试实例的个数，后面跟着n行，每行包括一个由字母和数字组成的字符串。</p><p>输出<br>对于每个测试实例，输出该串中数值的个数，每个输出占一行。‘</p><h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre><code>#include &lt;iostream&gt;</code></pre><p>#include <string><br>using namespace std;<br>int main() {<br>    int n; string m;<br>    cin &gt;&gt; n;<br>    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) {<br>        int x, y&#x3D;0;<br>        cin &gt;&gt; m;<br>        x &#x3D; m.length();<br>        for (int j &#x3D; 0; j &lt; x; j++) {<br>            if (m[j] &#x3D;&#x3D; ‘0’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘1’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘2’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘3’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘4’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘5’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘6’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘7’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘8’) { y++; }<br>            if (m[j] &#x3D;&#x3D; ‘9’) { y++; }<br>        }<br>        cout &lt;&lt; y &lt;&lt; endl;<br>    }<br>    return 0;<br>}</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>偶数求和</title>
       <link href="/2022/11/10/%E5%81%B6%E6%95%B0%E6%B1%82%E5%92%8C/"/>
       <url>/2022/11/10/%E5%81%B6%E6%95%B0%E6%B1%82%E5%92%8C/</url>
