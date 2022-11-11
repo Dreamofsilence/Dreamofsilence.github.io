@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>首字母变大写</title>
+      <link href="/2022/11/11/%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E5%A4%A7%E5%86%99/"/>
+      <url>/2022/11/11/%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E5%A4%A7%E5%86%99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="首字母变大写"><a href="#首字母变大写" class="headerlink" title="首字母变大写"></a>首字母变大写</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个英文句子，句子中可能含有大写字母，小写字母、数字。将每个单词的第一个字母改成大写字母。</p><p>输入<br>输入数据包含多个测试实例，第一行输入一个整数代表样例个数。每个测试实例是一个长度不超过100的英文句子，占一行。<br>输出<br>请输出按照要求改写后的英文句子。</p><h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre><code>#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;cstring&gt;using namespace std;int main() &#123;int n; string m;cin &gt;&gt; n;for (int i = 0; i &lt; n; i++) &#123;    int x, y=0;    getline(cin, m);    x = m.length();    if (x != 0) &#123;        for (int j = 1; j &lt; x; j++) &#123;            if (&#39;a&#39; &lt;= m[0] &amp;&amp; m[0] &lt;= &#39;z&#39;) &#123; m[0] -= 32; &#125;            if (m[j - 1] == &#39; &#39; &amp;&amp; &#39;a&#39; &lt;= m[j] &amp;&amp; m[j] &lt;= &#39;z&#39;) &#123; m[j] -= 32; &#125;        &#125;        for (int k = 0; k &lt; x; k++) &#123;            cout &lt;&lt; m[k];        &#125;cout &lt;&lt; endl;    &#125;    else i--;&#125;return 0;&#125;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>字符串统计</title>
       <link href="/2022/11/11/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1/"/>
       <url>/2022/11/11/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1/</url>
